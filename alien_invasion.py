@@ -2,6 +2,7 @@ import sys
 import pygame
 import os
 from settings import Settings
+from ship import Ship
 
 
 def run_game():
@@ -9,12 +10,14 @@ def run_game():
     screen = pygame.display.set_mode((ai_param.scn_wth, ai_param.scn_hth))
     pygame.display.set_caption("A l i e n s")
     bg = pygame.image.load(ai_param.bg)
+    ship = Ship(screen)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
         # screen.fill(bg_color)
         screen.blit(bg, (0, 0))
+        ship.blitme()
         pygame.display.flip()
 
 
