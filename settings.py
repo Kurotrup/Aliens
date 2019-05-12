@@ -9,3 +9,6 @@ class Settings:
         self.bg = "pic/bg.jpg"
         self.start_x = 10
         self.start_y = 35
+
+        # ship settings
+        self.ship_sp_f = 1.8

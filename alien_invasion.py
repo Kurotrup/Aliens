@@ -10,9 +10,10 @@ def run_game():
     screen = pygame.display.set_mode((ai_param.scn_wth, ai_param.scn_hth))
     pygame.display.set_caption("A l i e n s")
     bg = pygame.image.load(ai_param.bg)
-    ship = Ship(screen)
+    ship = Ship(ai_param, screen)
     while True:
-        gf.check_events()
+        gf.check_events(ship)
+        ship.update()
         gf.update_screen(screen, ship, bg)
 
 
