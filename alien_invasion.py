@@ -1,8 +1,8 @@
-import sys
 import pygame
 import os
 from settings import Settings
 from ship import Ship
+import game_func as gf
 
 
 def run_game():
@@ -12,13 +12,8 @@ def run_game():
     bg = pygame.image.load(ai_param.bg)
     ship = Ship(screen)
     while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-        # screen.fill(bg_color)
-        screen.blit(bg, (0, 0))
-        ship.blitme()
-        pygame.display.flip()
+        gf.check_events()
+        gf.update_screen(screen, ship, bg)
 
 
 ai_param = Settings()
