@@ -30,7 +30,7 @@ class Ship:
         self.aob.blit(self.screen, self.rect)
 
     def update(self):
-        """changes ship possition according to the move flag state """
+        """changes ship position according to the move flag state """
         if self.move_right and self.rect.right < self.screen_rect.right:
             self.center += self.ai_param.ship_sp_f
         elif self.move_left and self.rect.left > 0:

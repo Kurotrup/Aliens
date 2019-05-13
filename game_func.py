@@ -3,7 +3,7 @@ import pygame
 
 
 def check_kd_events(event, ship):
-    """reacted on the button pushing"""
+    """reacts on the button pushing"""
     if event.key == pygame.K_RIGHT:
         ship.move_right = True
     elif event.key == pygame.K_LEFT:
@@ -13,7 +13,7 @@ def check_kd_events(event, ship):
 
 
 def check_ku_events(event, ship):
-    """ reacted on the button releaving """
+    """ reacts on the button leaving """
     if event.key == pygame.K_RIGHT:
         ship.move_right = False
     elif event.key == pygame.K_LEFT:
@@ -23,7 +23,7 @@ def check_ku_events(event, ship):
 
 
 def check_events(ship):
-    """ process buttoms clics and mouse moves """
+    """ process buttons clicks and mouse moves """
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -34,7 +34,7 @@ def check_events(ship):
 
 
 def update_screen(screen, ship, bg):
-    """udate scree and draws new image on it """
+    """updates screen and draws new image on it"""
     screen.blit(bg, (0, 0))
     ship.blitme()
     pygame.display.flip()
