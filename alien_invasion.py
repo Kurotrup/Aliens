@@ -1,5 +1,6 @@
 import pygame
 import os
+from pygame.sprite import Group
 from settings import Settings
 from ship import Ship
 import game_func as gf
@@ -11,10 +12,12 @@ def run_game():
     pygame.display.set_caption("A l i e n s")
     bg = pygame.image.load(ai_param.bg)
     ship = Ship(ai_param, screen)
+    bullets = Group()
     while True:
-        gf.check_events(ship)
+        gf.check_events(ai_param, screen, ship, bullets)
         ship.update()
-        gf.update_screen(screen, ship, bg)
+        gf.update_bul(bullets)
+        gf.update_screen(ai_param, screen, ship, bg, bullets)
 
 
 ai_param = Settings()

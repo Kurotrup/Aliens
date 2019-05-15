@@ -12,10 +12,12 @@ Alien invasions game from python crash course book
   - ai_param, game settings
   - screen, main surface
   - ship , player's ship
+  - bullets , sprites group of player's bullets 
   also it stores main while loop which continuously calling methods:
   - check_events(), process buttons clicks and mouse moves
-  - ship.update(), changes ship position according
-  - update_screen(), updates screen and draws new image on it
+  - ship.update(), changes ship position
+  - update_screen(), updates screen and draws new images on it
+  - update_bul(), updates bullets position and remove old one
   For starting the game you need to run only this file, all others files stores the code which is imported in this file.   
 
 - "settings.py":
@@ -27,11 +29,17 @@ Alien invasions game from python crash course book
   - check_kd_events(), reacts on the button pushing
   - check_ku_events(), reacts on the button leaving
   - update_screen(), updates screen and draws new image on it
+  - update_bul(), updates bullets position and remove old one
+  - fire(), new bullet creating and adding it to the sprites group
 
 - "ship.py":
   stores "Ship" class which describes players ship. This class have 3 methods:
-  - __init__, initializes object of the classS  
+  - __init__, initializes object of the class  
   - update(), changes ship position according to the move flag state
   - blitme(), draws ship in the current position  
 
 - "bullet.py"
+  stored "Bullet" class which control player's bullets with such methods:
+  - __init__(), creates bullet object in current ships position
+  - update(), moves bullet to the top of the screen
+  - draw_bul(), draws bullet on the screen
