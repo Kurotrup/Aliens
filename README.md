@@ -12,7 +12,7 @@ Alien invasions game from python crash course book
   - ai_param, game settings
   - screen, main surface
   - ship , player's ship
-  - bullets , sprites group of player's bullets 
+  - bullets , sprites group of player's bullets
   also it stores main while loop which continuously calling methods:
   - check_events(), process buttons clicks and mouse moves
   - ship.update(), changes ship position
@@ -38,8 +38,13 @@ Alien invasions game from python crash course book
   - update(), changes ship position according to the move flag state
   - blitme(), draws ship in the current position  
 
-- "bullet.py"
-  stored "Bullet" class which control player's bullets with such methods:
+- "bullet.py":
+  stores "Bullet" class which control player's bullets with such methods:
   - __init__(), creates bullet object in current ships position
   - update(), moves bullet to the top of the screen
   - draw_bul(), draws bullet on the screen
+
+- "enemy.py":
+  stores "Fighter" class describes one enemy fighter. This class such methods:
+  - __init__(), initializes fighter and sets it's start position
+  - blitme(), shows fighter in the current position

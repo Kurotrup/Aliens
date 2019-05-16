@@ -38,12 +38,13 @@ def check_events(ai_param, screen, ship, bullets):
             check_ku_events(event, ship)
 
 
-def update_screen(ai_param, screen, ship, bg, bullets):
+def update_screen(ai_param, screen, ship, bg, fighter, bullets):
     """updates screen and draws new image on it"""
     screen.blit(bg, (0, 0))
     for bul in bullets.sprites():
         bul.draw_bul()
     ship.blitme()
+    fighter.blitme()
     pygame.display.flip()
 
 
