@@ -13,6 +13,8 @@ def check_kd_events(event, ai_param, screen, ship, bullets):
         ship.ai_param.ship_sp_f *= 10
     elif event.key == pygame.K_SPACE:
         fire(ai_param, screen, ship, bullets)
+    elif event.key == pygame.K_q:
+        sys.exit()
 
 
 def check_ku_events(event, ship):
