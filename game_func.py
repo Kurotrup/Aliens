@@ -72,7 +72,12 @@ def imperials(ai_param, screen, ship, fighters):
     fighter = Fighter(ai_param, screen)
     fi_amount_x = get_numb(ai_param, fighter.rect.width)
     row_n = row_numb(ai_param, ship.rect.height, fighter.rect.height)
+<<<<<<< HEAD
     # rows creation
+=======
+    # fist row creation
+    print(row_n)
+>>>>>>> 04a3dea872796abdaa4a00f9de94e8add12dc9b4
     for r in range(row_n):
         for fi in range(fi_amount_x):
             cr_fgr(ai_param, screen, fighters, fi, r)
