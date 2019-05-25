@@ -32,7 +32,8 @@ Alien invasions game from python crash course book
   - update_bul(), updates bullets position and remove old one
   - fire(), new bullet creating and adding it to the sprites group
   - imperials(), creates imperials fleet
-  - get_numb(), calculating number of fighters in a row
+  - get_numb(), calculates number of fighters in a row
+  - row_numb(),  calculates the number of fighters rows
   - cr_fgr(), creates fighter
 
 - "ship.py":

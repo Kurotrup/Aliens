@@ -66,14 +66,17 @@ def update_bul(bullets):
             bullets.remove(bul)
 
 
-def imperials(ai_param, screen, fighters):
+def imperials(ai_param, screen, ship, fighters):
     """creates imperials fleet """
     # fighter's creation and calculating the amount of fighters
     fighter = Fighter(ai_param, screen)
     fi_amount_x = get_numb(ai_param, fighter.rect.width)
+    row_n = row_numb(ai_param, ship.rect.height, fighter.rect.height)
     # fist row creation
-    for fi in range(fi_amount_x):
-        cr_fgr(ai_param, screen, fighters, fi)
+    print(row_n)
+    for r in range(row_n):
+        for fi in range(fi_amount_x):
+            cr_fgr(ai_param, screen, fighters, fi, r)
 
 
 def get_numb(ai_param, fighter_w):
@@ -83,10 +86,19 @@ def get_numb(ai_param, fighter_w):
     return fi_amount
 
 
-def cr_fgr(ai_param, screen, fighters, fi):
+def row_numb(ai_param, ship_h, fighter_h):
+    """ calculating the number of fighters rows """
+    av_space_y = ai_param.scn_hth - (2 * fighter_h) - ship_h
+    num_rows = int(av_space_y / (2 * fighter_h))
+    return num_rows
+
+
+def cr_fgr(ai_param, screen, fighters, fi, row_n):
     """creates fighter """
     fighter = Fighter(ai_param, screen)
     fighter_w = fighter.rect.width
+    fighter_h = fighter.rect.height
     fighter.x = fighter_w + 2 * fighter_w * fi
     fighter.rect.x = fighter.x
+    fighter.rect.y = fighter_h + fighter_w * row_n
     fighters.add(fighter)
