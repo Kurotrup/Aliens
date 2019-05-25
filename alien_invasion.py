@@ -14,7 +14,7 @@ def run_game():
     ship = Ship(ai_param, screen)
     bullets = Group()
     fighters = Group()
-    gf.imperials(ai_param, screen, fighters)
+    gf.imperials(ai_param, screen, ship, fighters)
     while True:
         gf.check_events(ai_param, screen, ship, bullets)
         ship.update()
