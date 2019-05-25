@@ -1,6 +1,7 @@
 import sys
 import pygame
 from bullet import Bullet
+from enemy import Fighter
 
 
 def check_kd_events(event, ai_param, screen, ship, bullets):
@@ -38,13 +39,13 @@ def check_events(ai_param, screen, ship, bullets):
             check_ku_events(event, ship)
 
 
-def update_screen(ai_param, screen, ship, bg, fighter, bullets):
+def update_screen(ai_param, screen, ship, bg, fighters, bullets):
     """updates screen and draws new image on it"""
     screen.blit(bg, (0, 0))
     for bul in bullets.sprites():
         bul.draw_bul()
     ship.blitme()
-    fighter.blitme()
+    fighters.draw(screen)
     pygame.display.flip()
 
 
@@ -63,3 +64,29 @@ def update_bul(bullets):
     for bul in bullets.copy():
         if bul.rect.bottom <= 0:
             bullets.remove(bul)
+
+
+def imperials(ai_param, screen, fighters):
+    """creates imperials fleet """
+    # fighter's creation and calculating the amount of fighters
+    fighter = Fighter(ai_param, screen)
+    fi_amount_x = get_numb(ai_param, fighter.rect.width)
+    # fist row creation
+    for fi in range(fi_amount_x):
+        cr_fgr(ai_param, screen, fighters, fi)
+
+
+def get_numb(ai_param, fighter_w):
+    """ calculating number of fighters in a row"""
+    av_space_x = ai_param.scn_wth - 2 * fighter_w
+    fi_amount = int(av_space_x / (2 * fighter_w))
+    return fi_amount
+
+
+def cr_fgr(ai_param, screen, fighters, fi):
+    """creates fighter """
+    fighter = Fighter(ai_param, screen)
+    fighter_w = fighter.rect.width
+    fighter.x = fighter_w + 2 * fighter_w * fi
+    fighter.rect.x = fighter.x
+    fighters.add(fighter)

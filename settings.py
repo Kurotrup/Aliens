@@ -13,11 +13,11 @@ class Settings:
         self.ship_sp_f = 1.8
 
         # bullet settings
-        self.bul_sp_f = 1
+        self.bul_sp_f = 5
         self.bul_w = 3
         self.bul_h = 12
         self.bul_col = 135, 226, 242
-        self.bul_allowed = 5
+        self.bul_allowed = 10
 
 
 # 87, 127, 178

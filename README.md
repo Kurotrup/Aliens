@@ -31,6 +31,9 @@ Alien invasions game from python crash course book
   - update_screen(), updates screen and draws new image on it
   - update_bul(), updates bullets position and remove old one
   - fire(), new bullet creating and adding it to the sprites group
+  - imperials(), creates imperials fleet
+  - get_numb(), calculating number of fighters in a row
+  - cr_fgr(), creates fighter
 
 - "ship.py":
   stores "Ship" class which describes players ship. This class have 3 methods:
