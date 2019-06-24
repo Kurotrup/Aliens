@@ -72,12 +72,7 @@ def imperials(ai_param, screen, ship, fighters):
     fighter = Fighter(ai_param, screen)
     fi_amount_x = get_numb(ai_param, fighter.rect.width)
     row_n = row_numb(ai_param, ship.rect.height, fighter.rect.height)
-<<<<<<< HEAD
     # rows creation
-=======
-    # fist row creation
-    print(row_n)
->>>>>>> 04a3dea872796abdaa4a00f9de94e8add12dc9b4
     for r in range(row_n):
         for fi in range(fi_amount_x):
             cr_fgr(ai_param, screen, fighters, fi, r)
@@ -106,3 +101,24 @@ def cr_fgr(ai_param, screen, fighters, fi, row_n):
     fighter.rect.x = fighter.x
     fighter.rect.y = fighter_h + fighter_w * row_n
     fighters.add(fighter)
+
+
+def up_fighters(ai_param, fighters):
+    """udates fighters' positions """
+    ch_fl_edges(ai_param, fighters)
+    fighters.update(ai_param)
+
+
+def ch_fl_edges(ai_param, fighters):
+    """Reacts to reaching  screen edge """
+    for f in fighters.sprites():
+        if f.ch_edges():
+            change_direct(ai_param, fighters)
+            break
+
+
+def change_direct(ai_param, fighters):
+    """Drops imperials and changes their direction """
+    for f in fighters.sprites():
+        f.rect.y += ai_param.f_drop_s
+    ai_param.f_mv_dir *= -1

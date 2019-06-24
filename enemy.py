@@ -1,5 +1,6 @@
 import pygame
 from pygame.sprite import Sprite
+from settings import Settings
 
 
 class Fighter(Sprite):
@@ -9,6 +10,7 @@ class Fighter(Sprite):
         """initializes fighter and sets it's start position """
         super().__init__()
         self.screen = screen
+        self.ai_param = Settings()
 
         # image uploading
         self.image = pygame.image.load("pic/55.png")
@@ -24,3 +26,14 @@ class Fighter(Sprite):
     def blitme(self):
         """ shows fighter in the current position """
         self.screen.blit(self.image, self.rect)
+
+    def ch_edges(self):
+        """returns True if fighter on the edge """
+        sc_rect = self.screen.get_rect()
+        if self.rect.right >= sc_rect.right or self.rect.left <= 0:
+            return True
+
+    def update(self, ai_param):
+        """move to the right or left """
+        self.x += self.ai_param.f_sp_f * ai_param.f_mv_dir
+        self.rect.x = self.x

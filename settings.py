@@ -19,5 +19,10 @@ class Settings:
         self.bul_col = 135, 226, 242
         self.bul_allowed = 10
 
+        # fighters settings
+        self.f_sp_f = 1
+        self.f_drop_s = 10
+        self.f_mv_dir = 1  # '1' move to the right, '-1' to the left
+
 
 # 87, 127, 178
